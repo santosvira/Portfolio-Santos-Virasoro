@@ -26,29 +26,32 @@ export default function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-expo ${
-        scrolled ? "bg-ink/80 backdrop-blur-md border-b border-ink-line" : "bg-transparent"
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ease-expo ${
+        scrolled
+          ? "border-b border-ink-line bg-ink/80 backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
-      <nav className="max-w-container mx-auto flex items-center justify-between px-6 md:px-12 lg:px-[7.5rem] h-20">
+      <nav className="mx-auto flex h-20 max-w-container items-center justify-between px-6 md:px-12 lg:px-[7.5rem]">
         <a
           href="#top"
-          className="font-display font-semibold text-lg tracking-tightest text-paper"
+          className="font-display text-xl font-bold tracking-[0.08em] text-paper transition-colors duration-300 hover:text-emerald-bright"
         >
-          JR<span className="text-emerald-bright">.</span>
+          SV<span className="text-emerald-bright">.</span>
         </a>
-        <ul className="hidden md:flex items-center gap-10">
+
+        <ul className="hidden items-center gap-10 md:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 onMouseEnter={() => setActive(link.href)}
                 onMouseLeave={() => setActive("")}
-                className="relative text-sm text-paper-dim hover:text-paper transition-colors duration-300 py-2"
+                className="relative py-2 text-sm text-paper-dim transition-colors duration-300 hover:text-paper"
               >
                 {link.label}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-px bg-emerald-bright transition-all duration-300 ease-expo ${
+                  className={`absolute -bottom-0.5 left-0 h-px bg-emerald-bright transition-all duration-300 ease-expo ${
                     active === link.href ? "w-full" : "w-0"
                   }`}
                 />
@@ -56,9 +59,10 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center border border-emerald-dim text-sm text-paper px-5 py-2.5 rounded-full hover:bg-emerald hover:border-emerald transition-all duration-300 ease-expo"
+          className="hidden items-center rounded-full border border-emerald-dim px-5 py-2.5 text-sm text-paper transition-all duration-300 ease-expo hover:border-emerald hover:bg-emerald md:inline-flex"
         >
           Hablemos
         </a>

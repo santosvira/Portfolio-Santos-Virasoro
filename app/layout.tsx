@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Santos Virasoro — Digital Designer & Motion Artist",
+  title: "Santos Virasoro — Digital Designer & Video Editor",
   description:
     "Portfolio de diseño digital, motion graphics, edición de video y UX/UI design.",
 };
