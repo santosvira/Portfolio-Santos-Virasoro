@@ -83,12 +83,22 @@ export default function ArtisumPage() {
               key={index}
               className="group rounded-2xl overflow-hidden border border-white/10 bg-[#101513]"
             >
-              <div className="aspect-video bg-[#17221d] flex items-center justify-center">
-                <Play
-                  size={40}
-                  className="text-emerald-400 opacity-60"
-                />
-              </div>
+              <div className="aspect-video bg-black overflow-hidden">
+  {index === 0 ? (
+    <iframe
+      src="https://drive.google.com/file/d/1LiixEc4wQ-LMy4-Vqenu--cslhQhbbhA/preview"
+      title="Trabajo audiovisual Artisum 01"
+      className="w-full h-full"
+      allow="fullscreen"
+      allowFullScreen
+      loading="lazy"
+    />
+  ) : (
+    <div className="w-full h-full bg-[#17221d] flex items-center justify-center">
+      <Play size={40} className="text-emerald-400 opacity-60" />
+    </div>
+  )}
+</div>
 
               <div className="p-6">
                 <div className="flex justify-between items-start gap-4">
