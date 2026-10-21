@@ -1,4 +1,5 @@
 
+
 import Link from "next/link";
 import { ArrowLeft, Play, ArrowUpRight } from "lucide-react";
 
@@ -7,16 +8,19 @@ const trabajos = [
     titulo: "Proyecto audiovisual 01",
     descripcion: "Edición de contenido para redes sociales.",
     categoria: "Video Editing",
+    video: "https://drive.google.com/file/d/1LiixEc4wQ-LMy4-Vqenu--cslhQhbbhA/preview",
   },
   {
     titulo: "Proyecto audiovisual 02",
     descripcion: "Contenido audiovisual para plataformas digitales.",
     categoria: "Social Media",
+    video: "https://drive.google.com/file/d/18_PpHmaFN6KPkO6_RPMB1_0F7ecOP_BN/preview",
   },
   {
     titulo: "Proyecto audiovisual 03",
     descripcion: "Edición y postproducción de video.",
     categoria: "Postproducción",
+    video: "",
   },
 ];
 
@@ -84,31 +88,24 @@ export default function ArtisumPage() {
               className="group rounded-2xl overflow-hidden border border-white/10 bg-[#101513]"
             >
               <div className="aspect-video bg-black overflow-hidden">
-
-<div className="aspect-video bg-black overflow-hidden">
-  {index === 0 || index === 1 ? (
-    <iframe
-      src={
-        index === 0
-          ? "https://drive.google.com/file/d/1LiixEc4wQ-LMy4-Vqenu--cslhQhbbhA/preview"
-          : "https://drive.google.com/file/d/18_PpHmaFN6KPkO6_RPMB1_0F7ecOP_BN/preview"
-      }
-      title={`Trabajo audiovisual Artisum ${index + 1}`}
-      className="w-full h-full"
-      allow="fullscreen"
-      allowFullScreen
-      loading="lazy"
-    />
-  ) : (
-    <div className="w-full h-full bg-[#17221d] flex items-center justify-center">
-      <Play
-        size={40}
-        className="text-emerald-400 opacity-60"
-      />
-    </div>
-  )}
-</div>
-
+                {trabajo.video ? (
+                  <iframe
+                    src={trabajo.video}
+                    title={trabajo.titulo}
+                    className="w-full h-full"
+                    allow="fullscreen"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#17221d] flex items-center justify-center">
+                    <Play
+                      size={40}
+                      className="text-emerald-400 opacity-60"
+                    />
+                  </div>
+                )}
+              </div>
 
               <div className="p-6">
                 <div className="flex justify-between items-start gap-4">
@@ -139,5 +136,7 @@ export default function ArtisumPage() {
       </footer>
     </main>
   );
+}
+
 }
 
