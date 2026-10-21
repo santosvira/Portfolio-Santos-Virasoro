@@ -57,7 +57,11 @@ function ProjectCard({
 }) {
   return (
     <a
-      href="#"
+      href={
+        project.title === "Proyecto Artisum"
+          ? "/artisum"
+          : "#"
+      }
       data-cursor-hover
       className="group block"
     >
