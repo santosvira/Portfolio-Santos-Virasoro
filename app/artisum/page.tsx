@@ -1,5 +1,4 @@
 
-
 import Link from "next/link";
 import { ArrowLeft, Play, ArrowUpRight } from "lucide-react";
 
@@ -8,13 +7,15 @@ const trabajos = [
     titulo: "Proyecto audiovisual 01",
     descripcion: "Edición de contenido para redes sociales.",
     categoria: "Video Editing",
-    video: "https://drive.google.com/file/d/1LiixEc4wQ-LMy4-Vqenu--cslhQhbbhA/preview",
+    video:
+      "https://drive.google.com/file/d/1LiixEc4wQ-LMy4-Vqenu--cslhQhbbhA/preview",
   },
   {
     titulo: "Proyecto audiovisual 02",
     descripcion: "Contenido audiovisual para plataformas digitales.",
     categoria: "Social Media",
-    video: "https://drive.google.com/file/d/18_PpHmaFN6KPkO6_RPMB1_0F7ecOP_BN/preview",
+    video:
+      "https://drive.google.com/file/d/18_PpHmaFN6KPkO6_RPMB1_0F7ecOP_BN/preview",
   },
   {
     titulo: "Proyecto audiovisual 03",
@@ -47,7 +48,10 @@ export default function ArtisumPage() {
         </p>
 
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-          Proyecto <span className="text-emerald-400">Artisum.</span>
+          Proyecto{" "}
+          <span className="text-emerald-400">
+            Artisum.
+          </span>
         </h1>
 
         <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
@@ -58,21 +62,24 @@ export default function ArtisumPage() {
         </p>
 
         <div className="flex flex-wrap gap-3 mt-8">
-          {["Premiere Pro", "After Effects", "Video Editing", "Social Media"].map(
-            (skill) => (
-              <span
-                key={skill}
-                className="border border-white/15 rounded-full px-4 py-2 text-xs text-gray-300"
-              >
-                {skill}
-              </span>
-            )
-          )}
+          {[
+            "Premiere Pro",
+            "After Effects",
+            "Video Editing",
+            "Social Media",
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="border border-white/15 rounded-full px-4 py-2 text-xs text-gray-300"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </section>
 
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
           <h2 className="text-3xl font-semibold">
             Trabajos seleccionados
           </h2>
@@ -82,17 +89,17 @@ export default function ArtisumPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {trabajos.map((trabajo, index) => (
+          {trabajos.map((trabajo) => (
             <article
-              key={index}
-              className="group rounded-2xl overflow-hidden border border-white/10 bg-[#101513]"
+              key={trabajo.titulo}
+              className="rounded-2xl overflow-hidden border border-white/10 bg-[#101513]"
             >
               <div className="aspect-video bg-black overflow-hidden">
                 {trabajo.video ? (
                   <iframe
                     src={trabajo.video}
                     title={trabajo.titulo}
-                    className="w-full h-full"
+                    className="w-full h-full border-0"
                     allow="fullscreen"
                     allowFullScreen
                     loading="lazy"
@@ -113,16 +120,19 @@ export default function ArtisumPage() {
                     <p className="text-emerald-400 text-xs mb-3">
                       {trabajo.categoria}
                     </p>
+
                     <h3 className="text-xl font-semibold mb-2">
                       {trabajo.titulo}
                     </h3>
+
                     <p className="text-gray-400 text-sm">
                       {trabajo.descripcion}
                     </p>
                   </div>
+
                   <ArrowUpRight
                     size={20}
-                    className="text-gray-500"
+                    className="text-gray-500 shrink-0"
                   />
                 </div>
               </div>
@@ -137,6 +147,3 @@ export default function ArtisumPage() {
     </main>
   );
 }
-
-}
-
